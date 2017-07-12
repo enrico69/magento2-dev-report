@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Eric COURTIAL <e.courtial30@gmail.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="dev_observer_report" xsi:type="object">Enrico69\Magento2DevReport\Console\Command\ObserverReportCommand</item>
+                <item name="dev_preference_report" xsi:type="object">Enrico69\Magento2DevReport\Console\Command\PreferenceReportCommand</item>
+                <item name="dev_plugin_report" xsi:type="object">Enrico69\Magento2DevReport\Console\Command\PluginReportCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
