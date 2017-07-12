@@ -47,7 +47,8 @@ abstract class ReportCommandAbstract extends Command
      */
     public function __construct(
         ModuleParser $moduleParser,
-        ReportGenerator $reportGenerator, $name = null) {
+        ReportGenerator $reportGenerator, $name = null)
+    {
         parent::__construct($name);
         $this->moduleParser = $moduleParser;
         $this->reportGenerator = $reportGenerator;
@@ -64,7 +65,7 @@ abstract class ReportCommandAbstract extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $moduleName = $input->getArgument('module');
-        if($moduleName) { // Scan one specified module
+        if ($moduleName) { // Scan one specified module
             $modulesList = $this->getSingleModule($moduleName);
         } else { // Scan all modules
             $output->writeln("Scanning modules...");
@@ -97,12 +98,12 @@ abstract class ReportCommandAbstract extends Command
     protected function getSingleModule($moduleName)
     {
         $array = explode("_", $moduleName);
-        if(count($array) !== 2 || mb_strlen(trim($array[0])) === 0
+        if (count($array) !== 2 || mb_strlen(trim($array[0])) === 0
             || mb_strlen(trim($array[1])) === 0) {
             throw new \Exception("The module name pattern is invalid");
         }
 
-        if(!$this->moduleParser->checkIfModuleExists($array[0], $array[1])) {
+        if (!$this->moduleParser->checkIfModuleExists($array[0], $array[1])) {
             throw new \Exception("The module directory doesn't exist");
         }
 
@@ -123,7 +124,7 @@ abstract class ReportCommandAbstract extends Command
             new \ReflectionClass($classFullName);
         } catch (\ReflectionException $refEx) {
             $this->addReportMessage("Class not found: $classFullName", 'error');
-        } catch(\Exception $ex) {
+        } catch (\Exception $ex) {
             $this->addReportMessage("Impossible to reflect class: $classFullName", 'error');
         }
     }
@@ -157,17 +158,16 @@ abstract class ReportCommandAbstract extends Command
     {
         $htmlContent = "";
 
-        foreach($elements as $name => $element) {
+        foreach ($elements as $name => $element) {
             $title = $this->reportGenerator->getTitleElement($name);
             $lines = "";
-            foreach($element as $scope => $entries) {
-                foreach($entries as $entry) {
+            foreach ($element as $scope => $entries) {
+                foreach ($entries as $entry) {
                     $lines .= $this->reportGenerator->getLine($entry['module'], $scope, $entry['instance']);
                     $htmlContent .= $title . $this->reportGenerator->getBlock(
                             'Module', 'Scope', 'Instance', $lines);
                 }
             }
-
         }
 
         return $htmlContent;
@@ -184,7 +184,7 @@ abstract class ReportCommandAbstract extends Command
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @return void
      */
-    protected abstract function collectData(&$modulesList, OutputInterface $output);
+    abstract protected function collectData(&$modulesList, OutputInterface $output);
 
     /**
      * Generate the report
@@ -192,5 +192,5 @@ abstract class ReportCommandAbstract extends Command
      * @param array $modulesList
      * @return string the name of the report file
      */
-    protected abstract function generateReport($modulesList);
+    abstract protected function generateReport($modulesList);
 }

@@ -42,5 +42,4 @@ class Module
             DIRECTORY_SEPARATOR . $vendorName . DIRECTORY_SEPARATOR .
             $moduleName . $additionalString;
     }
-
 }

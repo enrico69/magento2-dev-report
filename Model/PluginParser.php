@@ -140,9 +140,8 @@ class PluginParser
     protected function parseDiXML(&$plugins, $diFile, $key)
     {
         $xml = simplexml_load_file($diFile);
-        foreach ($xml->children()->type as $element)
-        {
-            if($element->plugin) {
+        foreach ($xml->children()->type as $element) {
+            if ($element->plugin) {
                 $plugin = [];
                 $plugin['name'] = (string)$element['name'];
                 $plugin['instance'] = (string)$element->plugin['type'];

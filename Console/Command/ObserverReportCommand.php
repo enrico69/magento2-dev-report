@@ -43,7 +43,8 @@ class ObserverReportCommand extends ReportCommandAbstract
     public function __construct(
         ModuleParser $moduleParser,
         ReportGenerator $reportGenerator,
-        ObserverParser $observerParser, $name = null) {
+        ObserverParser $observerParser, $name = null)
+    {
         parent::__construct($moduleParser, $reportGenerator, $name);
         $this->moduleParser = $moduleParser;
         $this->observerParser= $observerParser;
@@ -65,7 +66,7 @@ class ObserverReportCommand extends ReportCommandAbstract
         // first part of the report and create and index of events
         foreach ($modulesList as $vendorName => $modules) {
             // Run through the modules list
-            foreach($modules as $moduleName => $observers) {
+            foreach ($modules as $moduleName => $observers) {
                 // Store the observers for the second part of the report
                 // There they will be indexed not by module, but by events
                 $this->storeEvents($vendorName . '_' . $moduleName, $events, $observers);
@@ -79,7 +80,7 @@ class ObserverReportCommand extends ReportCommandAbstract
         // Events part
         $strHtmlReportEventsPart = $this->generateSecondTable($events);
 
-        return $this->reportGenerator->writeReportFile('Observers report','Observers', $strHtmlReportObserversPart,
+        return $this->reportGenerator->writeReportFile('Observers report', 'Observers', $strHtmlReportObserversPart,
             'Events', $strHtmlReportEventsPart, $this->reportMessages);
     }
 
@@ -118,7 +119,7 @@ class ObserverReportCommand extends ReportCommandAbstract
             $modulesList[$vendorName] = array_flip($modulesList[$vendorName]);
 
             // Processes all the modules
-            foreach($modulesList[$vendorName] as $moduleName => &$value) {
+            foreach ($modulesList[$vendorName] as $moduleName => &$value) {
                 $value = $this->observerParser->getObservers($vendorName, $moduleName);
                 // Removing modules which don't have any observers
                 if ($value['total'] === 0) {

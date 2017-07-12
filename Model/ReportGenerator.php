@@ -31,22 +31,22 @@ class ReportGenerator
      */
     public function generateReportBlock($reportMessages)
     {
-        if(count($reportMessages) === 0) {
+        if (count($reportMessages) === 0) {
             $strResult = $this->getMsgLine('No error detected', 'infoMsg');
         } else {
             $strResult = "";
             foreach ($reportMessages as $message) {
                 switch ($message['level']) {
-                    case 'info' :
+                    case 'info':
                         $cssClass = 'infoMsg';
                         break;
-                    case 'warning' :
+                    case 'warning':
                         $cssClass = 'warningMsg';
                         break;
-                    case 'error' :
+                    case 'error':
                         $cssClass = 'errorMsg';
                         break;
-                    default :
+                    default:
                         $cssClass = 'infoMsg';
                         break;
                 }
@@ -125,7 +125,8 @@ EOD;
      * @param $class
      * @return string
      */
-    protected function getMsgLine($msg, $class) {
+    protected function getMsgLine($msg, $class)
+    {
         return <<<EOD
             <tr>
                 <td class="$class">$msg</td>

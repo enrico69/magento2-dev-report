@@ -142,8 +142,7 @@ class PreferenceParser
     protected function parseDiXML(&$preferences, $diFile, $key)
     {
         $xml = simplexml_load_file($diFile);
-        foreach ($xml->children()->preference as $element)
-        {
+        foreach ($xml->children()->preference as $element) {
             $preference = [];
             $preference['name'] = (string) $element['for'];
             $preference['instance'] = (string) $element['type'];

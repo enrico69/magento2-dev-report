@@ -142,8 +142,7 @@ class ObserverParser
     protected function parseEventsXML(&$observers, $eventsFile, $key)
     {
         $xml = simplexml_load_file($eventsFile);
-        foreach ($xml->children()->event as $event)
-        {
+        foreach ($xml->children()->event as $event) {
             $observer = [];
             $observer['name'] = (string) $event['name'];
             $observer['instance'] = (string) $event->observer['instance'];

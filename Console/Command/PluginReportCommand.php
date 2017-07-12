@@ -43,7 +43,8 @@ class PluginReportCommand extends ReportCommandAbstract
     public function __construct(
         ModuleParser $moduleParser,
         ReportGenerator $reportGenerator,
-        PluginParser $pluginParser, $name = null) {
+        PluginParser $pluginParser, $name = null)
+    {
         parent::__construct($moduleParser, $reportGenerator, $name);
         $this->moduleParser = $moduleParser;
         $this->pluginParser= $pluginParser;
@@ -65,7 +66,7 @@ class PluginReportCommand extends ReportCommandAbstract
         // first part of the report and create and index of plugins
         foreach ($modulesList as $vendorName => $modules) {
             // Run through the modules list
-            foreach($modules as $moduleName => $plugins) {
+            foreach ($modules as $moduleName => $plugins) {
                 // Store the $plugins for the second part of the report
                 // There they will be indexed not by module, but by target class
                 $this->storeTargets($vendorName . '_' . $moduleName, $targetClasses, $plugins);
@@ -120,7 +121,7 @@ class PluginReportCommand extends ReportCommandAbstract
             $modulesList[$vendorName] = array_flip($modulesList[$vendorName]);
 
             // Processes all the modules
-            foreach($modulesList[$vendorName] as $moduleName => &$value) {
+            foreach ($modulesList[$vendorName] as $moduleName => &$value) {
                 $value = $this->pluginParser->getPlugins($vendorName, $moduleName);
                 // Removing modules which don't have any observers
                 if ($value['total'] === 0) {

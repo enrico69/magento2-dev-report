@@ -48,7 +48,8 @@ class PreferenceReportCommand extends ReportCommandAbstract
     public function __construct(
         ModuleParser $moduleParser,
         ReportGenerator $reportGenerator,
-        PreferenceParser $preferenceParser, $name = null) {
+        PreferenceParser $preferenceParser, $name = null)
+    {
         parent::__construct($moduleParser, $reportGenerator, $name);
         $this->moduleParser = $moduleParser;
         $this->preferenceParser= $preferenceParser;
@@ -70,7 +71,7 @@ class PreferenceReportCommand extends ReportCommandAbstract
         // first part of the report and create and index of preferences
         foreach ($modulesList as $vendorName => $modules) {
             // Run through the modules list
-            foreach($modules as $moduleName => $preferences) {
+            foreach ($modules as $moduleName => $preferences) {
                 // Store the $preferences for the second part of the report
                 // There they will be indexed not by module, but by target class
                 $this->storeTargets($vendorName . '_' . $moduleName, $targetClasses, $preferences);
@@ -133,7 +134,7 @@ class PreferenceReportCommand extends ReportCommandAbstract
     protected function checkOverridesQuantity()
     {
         foreach ($this->overridedClasses as $className => $qty) {
-            if($qty > 1) {
+            if ($qty > 1) {
                 $this->addReportMessage("The class $className has been preferred many times", "warning");
             }
         }
@@ -154,7 +155,7 @@ class PreferenceReportCommand extends ReportCommandAbstract
             $modulesList[$vendorName] = array_flip($modulesList[$vendorName]);
 
             // Processes all the modules
-            foreach($modulesList[$vendorName] as $moduleName => &$value) {
+            foreach ($modulesList[$vendorName] as $moduleName => &$value) {
                 $value = $this->preferenceParser->getPreferences($vendorName, $moduleName);
                 // Removing modules which don't have any preferences
                 if ($value['total'] === 0) {
