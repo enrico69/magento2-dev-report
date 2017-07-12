@@ -10,7 +10,9 @@ Magento 2 developers to asset some implementations in their project. It scans al
 * Generate a report listing all the implemented plugins
 * Generate a report listing all the implemented preferences
 
-## Technical information
-
-## Notes
+## Installation
+The most simple way is to use composer:
+```
+composer require enrico69/magento2-dev-report --dev
+```
 
