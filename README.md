@@ -15,4 +15,11 @@ The most simple way is to use composer:
 ```
 composer require enrico69/magento2-dev-report --dev
 ```
+## Usage
+Once installed and enabled, this extension add three commands in the Magento console:
 
+```
+dev:observer:report                      Generate a report of all user-created observers
+dev:plugin:report                        Generate a report of all user-created plugins
+dev:preference:report                    Generate a report of all user-created preferences
+```
