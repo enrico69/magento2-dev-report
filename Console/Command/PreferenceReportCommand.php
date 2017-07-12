@@ -19,7 +19,7 @@ use Enrico69\Magento2DevReport\Model\PreferenceParser;
 class PreferenceReportCommand extends ReportCommandAbstract
 {
     /**
-     * @var \Magento\Developer\Model\Dependency\PreferenceParser
+     * @var \Enrico69\Magento2DevReport\Model\PreferenceParser
      */
     protected $preferenceParser;
 
@@ -39,10 +39,10 @@ class PreferenceReportCommand extends ReportCommandAbstract
     }
 
     /**
-     * ObserverReportCommand constructor.
-     * @param \Magento\Developer\Model\Dependency\ModuleParser $moduleParser
-     * @param \Magento\Developer\Model\Dependency\ReportGenerator $reportGenerator
-     * @param \Magento\Developer\Model\Dependency\PreferenceParser $preferenceParser
+     * PreferenceReportCommand constructor.
+     * @param \Enrico69\Magento2DevReport\Model\ModuleParser $moduleParser
+     * @param \Enrico69\Magento2DevReport\Model\ReportGenerator $reportGenerator
+     * @param \Enrico69\Magento2DevReport\Model\PreferenceParser $preferenceParser
      * @param null $name
      */
     public function __construct(

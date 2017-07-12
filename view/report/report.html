@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@Title@</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-style: solid;
+            border-width: 1px;
+            width: 1300px;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 8px;
+            border-style: solid;
+            border-width: 1px;
+            border-color:black;
+        }
+
+        td {
+            text-align: left;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .moduleTitle {
+            background-color: #0A246A;
+        }
+
+        .columnHeadTitle {
+            background-color: #2aa9ff;
+        }
+
+        #leftColum {
+            width: 500px;
+        }
+
+        #midlleColum {
+            width: 50px;
+        }
+
+        #rightColum {
+            width: 700px;
+        }
+
+        .separationDiv {
+            width: 100%;
+            height: 80px;
+        }
+
+        .infoMsg {
+            background-color: black;
+            color: #00fF11;
+        }
+
+        .errorMsg {
+            background-color: black;
+            color: red;
+        }
+
+        .warningMsg {
+            background-color: black;
+            color: yellow;
+        }
+
+        #reportTitle {
+            color: white;
+            background-color: #942a25;
+            width: 1300px;
+        }
+
+    </style>
+</head>
+<body>
+    <p id="reportTitle">@Title@</p>
+    <p>Generated on @generationDate@</p>
+    <table>
+        <tr>
+            <th>Modules</th>
+        </tr>
+    </table>
+    @modulesContent@
+    <div class="separationDiv"></div>
+    <table>
+        <tr>
+            <th>@Target@</th>
+        </tr>
+    </table>
+    @targetContent@
+    <div class="separationDiv"></div>
+    <table>
+        <tr>
+            <th>Report</th>
+        </tr>
+        @reportCheckContent@
+    </table>
+</body>
+</html>

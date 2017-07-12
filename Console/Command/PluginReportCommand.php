@@ -19,7 +19,7 @@ use Enrico69\Magento2DevReport\Model\PluginParser;
 class PluginReportCommand extends ReportCommandAbstract
 {
     /**
-     * @var \Magento\Developer\Model\Dependency\PluginParser
+     * @var \Enrico69\Magento2DevReport\Model\PluginParser
      */
     protected $pluginParser;
 
@@ -34,10 +34,10 @@ class PluginReportCommand extends ReportCommandAbstract
     }
 
     /**
-     * ObserverReportCommand constructor.
-     * @param \Magento\Developer\Model\Dependency\ModuleParser $moduleParser
-     * @param \Magento\Developer\Model\Dependency\ReportGenerator $reportGenerator
-     * @param \Magento\Developer\Model\Dependency\PluginParser $pluginParser
+     * PluginReportCommand constructor.
+     * @param \Enrico69\Magento2DevReport\Model\ModuleParser $moduleParser
+     * @param \Enrico69\Magento2DevReport\Model\ReportGenerator $reportGenerator
+     * @param \Enrico69\Magento2DevReport\Model\PluginParser $pluginParser
      * @param null $name
      */
     public function __construct(

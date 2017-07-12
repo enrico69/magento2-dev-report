@@ -63,9 +63,9 @@ class ReportGenerator
     protected function readTemplateContent()
     {
         $templatePath = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR .
-            '..' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'View' . DIRECTORY_SEPARATOR . 'Report';
+            DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'report';
         $fileReader = $this->readFactory->create($templatePath);
-        $this->reportContent = $fileReader->readFile('observer_report.html');
+        $this->reportContent = $fileReader->readFile('report.html');
     }
 
     /**

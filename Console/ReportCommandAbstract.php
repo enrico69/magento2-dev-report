@@ -20,7 +20,7 @@ use Enrico69\Magento2DevReport\Model\ReportGenerator;
 abstract class ReportCommandAbstract extends Command
 {
     /**
-     * @var \Magento\Developer\Model\Dependency\ModuleParser
+     * @var \Enrico69\Magento2DevReport\Model\ModuleParser
      */
     protected $moduleParser;
 
@@ -35,14 +35,14 @@ abstract class ReportCommandAbstract extends Command
     protected $reportMessages = [];
 
     /**
-     * @var \Magento\Developer\Model\Dependency\ReportGenerator
+     * @var \Enrico69\Magento2DevReport\Model\ReportGenerator
      */
     protected $reportGenerator;
 
     /**
-     * ReportAbstractCommand constructor.
-     * @param \Magento\Developer\Model\Dependency\ModuleParser $moduleParser
-     * @param \Magento\Developer\Model\Dependency\ReportGenerator $reportGenerator
+     * ReportCommandAbstract constructor.
+     * @param \Enrico69\Magento2DevReport\Model\ModuleParser $moduleParser
+     * @param \Enrico69\Magento2DevReport\Model\ReportGenerator $reportGenerator
      * @param null $name
      */
     public function __construct(

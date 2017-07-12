@@ -6,7 +6,7 @@
  */
 namespace Enrico69\Magento2DevReport\Model;
 
-use Enrico69\Magento2DevReport\Model\Module;
+use Enrico69\Magento2DevReport\Helper\Module;
 use Magento\Framework\Filesystem\Directory\ReadFactory;
 
 /**
@@ -16,7 +16,7 @@ use Magento\Framework\Filesystem\Directory\ReadFactory;
 class PluginParser
 {
     /**
-     * @var \Magento\Developer\Helper\Module
+     * @var \Enrico69\Magento2DevReport\Helper\Module
      */
     protected $moduleHelper;
 
@@ -42,7 +42,7 @@ class PluginParser
 
     /**
      * PluginParser constructor.
-     * @param \Magento\Developer\Helper\Module $moduleHelper
+     * @param \Enrico69\Magento2DevReport\Helper\Module $moduleHelper
      * @param \Magento\Framework\Filesystem\Directory\ReadFactory $directoryReaderFactory
      */
     public function __construct(
